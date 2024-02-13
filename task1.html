@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Frontend Task</title>
+    <!-- Include React scripts -->
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      // React component for the editable table
+      function EditableTable() {
+        const [data, setData] = React.useState({
+          "onboarding Call": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "Google Search console Access": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "Google Analytics Access": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "website Acess": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "Technical Audit": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "Anchor Test And Semantic Analysis": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "Compitetor Analysis": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "Anchor text/Url Mapping": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "Google Data Studio Report +Local Reporting Suite": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "Site LEvel Optimisation": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "on Page Optimisation": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "Content Creation": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "Content Publishing": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "Premium Press Release": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "Authority Niche Placements": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "Review Managements": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "Index Links": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "Review Managements": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+          "Video Recaps": {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+          },
+        });
+
+        const handleEdit = (id, field, value) => {
+          if (data[id]) {
+            // Create a copy of the row object
+            const updatedRow = { ...data[id] };
+            // Update the specified field with the new value
+            updatedRow[field] = value;
+            // Update the state by replacing the old row with the updated one
+            setData({ ...data, [id]: updatedRow });
+          } else {
+            // If the row with the given ID doesn't exist, create a new one
+            const newRow = { [field]: value };
+            // Update the state by adding the new row
+            setData({ ...data, [id]: newRow });
+          }
+        };
+        console.log("data State ready to post",data);
+        return (
+          <div
+            style={{
+              width: "100vw",
+              backgroundColor: "grey",
+            }}
+          >
+            {" "}
+            <div
+              style={{
+                width: "32vw",
+                display: "flex",
+                height: "40px",
+                justifyContent: "center",alignItems:"center"
+              }}
+            >
+              Month 1
+            </div>
+            {Object.entries(data).map(([key, current]) => (
+              <div key={key}>
+                <div
+                  style={{
+                    display: "flex",
+                    width: "100vw",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "32vw",
+                      border: "1px solid black",
+                      height: "30px",
+                      backgroundColor: "grey",
+                      justifyContent: "center",
+                      alignItems:"center"
+                    }}
+                  >
+                    {key}
+                  </div>
+                  <div
+                    contentEditable={true}
+                    onBlur={(e) => {
+                      handleEdit(key, 0, e.target.textContent);
+                    }}
+                    style={{
+                      width: "12vw",
+                      border: "1px solid black",
+                      height: "30px",
+                      backgroundColor: "white",
+                    }}
+                  >
+                    {current[0]}
+                  </div>
+                  <div
+                    contentEditable={true}
+                    onBlur={(e) => {
+                      handleEdit(key, 1, e.target.textContent);
+                    }}
+                    style={{
+                      width: "16vw",
+                      border: "1px solid black",
+                      height: "30px",
+                      backgroundColor: "white",
+                    }}
+                  >
+                    {current[1]}
+                  </div>
+                  <div
+                    contentEditable={true}
+                    onBlur={(e) => {
+                      handleEdit(key, 2, e.target.textContent);
+                    }}
+                    style={{
+                      width: "12vw",
+                      border: "1px solid black",
+                      height: "30px",
+                      backgroundColor: "white",
+                    }}
+                  >
+                    {current[2]}
+                  </div>
+                  <div
+                    contentEditable={true}
+                    onBlur={(e) => {
+                      handleEdit(key, 3, e.target.textContent);
+                    }}
+                    style={{
+                      width: "16vw",
+                      border: "1px solid black",
+                      height: "30px",
+                      backgroundColor: "white",
+                    }}
+                  >
+                    {current[3]}
+                  </div>
+                  <div
+                    contentEditable={true}
+                    onBlur={(e) => {
+                      handleEdit(key, 4, e.target.textContent);
+                    }}
+                    style={{
+                      width: "12vw",
+                      border: "1px solid black",
+                      height: "30px",
+                      backgroundColor: "white",
+                    }}
+                  >
+                    {current[4]}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        );
+      }
+
+      // Render the component to the DOM
+      ReactDOM.render(<EditableTable />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
